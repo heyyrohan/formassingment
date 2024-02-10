@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Form</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 550px;
+      margin: -200px auto ;
+      background-color: white;
+      padding-right: 40px;
+     position: relative;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      
+    }
+    .container:before {
+        margin-top: 56%;
+        content: '';
+        position: absolute;
+        border-left: 70px solid rgb(242,242,242);
+        width: 0;
+      }
+    .container::after {
+        margin-left: 88.5%;
+        content: '';
+        position: absolute;
+        border-bottom: 70px solid transparent;
+        border-right: 70px solid rgb(185, 172, 220);
+        
+      }
+
+      .Heading{
+        padding: 25px;
+        background-image: url(https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/3/fall-treasure-sandra-fountain.jpg);
+        
+      }
+
+      .Heading>h2{
+        color: white;
+        font-size: x-large;
+        font-weight: bolder;
+      }
+
+      .Heading>p{
+     font-size: 16px;
+     color: white;
+    }
+
+      .form{
+        padding: 30px 20px;
+      }
+
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+  }
+
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+
+  button[type="submit"] {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #3f95e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  
+  .error-message {
+    color: red;
+    margin-bottom: 5px;
+  }
+
+  .date-inputs {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .date-inputs div {
+    flex: 1;
+    margin-right: 10px;
+  }
+
+  #outerbox{
+    width: 100%;
+    height: 350px;
+    background-color: rgb(185, 172, 220);
+    border-radius: 100%/0 0 400px 400px;
+    z-index: -1;
+    
+  }
+
+@media screen and (max-width:630px){
+    .container {
+     display: block;
+      max-width: 550px;
+      margin: 100px auto;
+      background-color: white;
+      padding-right: 0px;
+      position: relative;
+
+    }
+    .container:before {
+        margin-top: 0%;
+        border-top: 0px solid cornflowerblue;
+        border-left: 0px solid rgb(242,242,242);
+        width: 0;
+      }
+    .container::after {
+        margin-left: 0%;
+        content: '';
+        position: absolute;
+        border-bottom: 0px solid transparent;
+        border-right: 0px solid rgb(242,242,242);
+      
+      }
+      .form{
+        padding: 30px 20px 0px 20px;
+      }
+      .radius{
+        margin-top: 30px;
+        width: 100%;
+        height: 100px;
+       
+        border-radius: 100% 100% 0% 0%;
+        background-color: rgb(185, 172, 220);
+      }
+
+      #outerbox{
+    display: none;
+    
+  }
+}
+
+</style>
+</head>
+<body>
+
+
+<div  id="outerbox"> </div>
+<div class="container">
+    <div class="Heading">
+        <h2>Sample heading</h2>
+        <p>1. Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+        <p>2. Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+        <p>3. Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+        
+     </div>
+     <div class="form">
+  <form id="responsiveForm">
+    <label for="email">Email Address:</label>
+    <input type="text" id="email" name="email">
+    <div class="error-message" id="emailError"></div>
+
+  
+
+    <label>Date of Birth:</label>
+    <div class="date-inputs">
+      <div>  <label for="day">day</label> <select id="day" name="day">
+        <option value="">Day</option>
+        <!-- Add options for days -->
+      </select>  </div>
+      
+      <div> <label for="month">Month</label> 
+      <select id="month" name="month">
+        <option value="">Month</option>
+        <option value="01">Jan</option>
+        <option value="02">Feb</option>
+        <option value="01">Mar</option>
+        <option value="02">Apr</option>
+        <option value="01">May</option>
+        <option value="01">Jun</option>
+        <option value="02">Jul</option>
+        <option value="01">Aug</option>
+        <option value="02">Sep</option>
+        <option value="01">Oct</option>
+        <option value="02">Nov</option>
+        <option value="01">Dec</option>
+        <!-- Add other months -->
+      </select>
+
+    </div>
+
+    <div> <label for="year">Year</label> 
+      <select id="year" name="year">
+        <option value="">Year</option>
+        <!-- Add options for years -->
+      </select>
+    </div>
+    </div>
+    <div class="error-message" id="dateError"></div>
+    
+     <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+    <div class="error-message" id="passwordError"></div>  
+
+
+    <label>Choose an option:</label>
+    <input type="radio" id="option1" name="option" value="option1"> Individual &nbsp &nbsp &nbsp 
+    <input type="radio" id="option2" name="option" value="option2"> Agency
+    <div class="error-message" id="radioError"></div>
+
+    <button type="submit">Submit</button>
+  </form>
+  <div class="radius"></div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  // Populate month, day, and year select options
+  
+  for (var i = 1; i <= 31; i++) {
+    $('#day').append($('<option>', {
+      value: i,
+      text: i
+    }));
+  }
+
+  var currentYear = new Date().getFullYear();
+  for (var i = currentYear; i >= currentYear - 100; i--) {
+    $('#year').append($('<option>', {
+      value: i,
+      text: i
+    }));
+  }
+
+  $('#responsiveForm').submit(function(event) {
+    event.preventDefault();
+    var email = $('#email').val();
+    var password = $('#password').val();
+    var month = $('#month').val();
+    var day = $('#day').val();
+    var year = $('#year').val();
+    var selectedOption = $('input[name="option"]:checked').val();
+
+    // Reset errors
+    $('.error-message').text('');
+
+    // Validate email
+    if (!email) {
+      $('#emailError').text('Please add valid mail address');
+    } else if (!isValidEmail(email)) {
+      $('#emailError').text('Please add valid mail address');
+    }
+
+    // Validate password
+    if (!password) {
+      $('#passwordError').text('Please add correct password');
+    }
+
+    // Validate date of birth
+    if (!isValidDate(month, day, year)) {
+      $('#dateError').text('Please enter valid date');
+    }
+
+    // Validate radio button
+    if (!selectedOption) {
+      $('#radioError').text('Please choose an option');
+    }
+    if (!$('.error-message').text()) {
+        // You can submit the form here
+        alert('Form submitted successfully!');
+      }
+  });
+
+  // Function to validate email format
+  function isValidEmail(email) {
+    var emailRegex = /\S+@\S+\.\S+/;
+    return emailRegex.test(email);
+  }
+
+  // Function to validate date of birth
+  function isValidDate(month, day, year) {
+    return month && day && year;
+  }
+});
+</script>
+
+</body>
+</html>
